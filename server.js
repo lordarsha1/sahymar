@@ -72,4 +72,5 @@ app.post('/api/change-password', async (req, res) => {
 const requireAuth = (req, res, next) => req.session.userEmail ? next() : res.status(401).json({ error: 'ابتدا وارد حساب شوید.' });
 app.get('/api/stocks', requireAuth, (req, res) => { res.set('Cache-Control', 'no-store'); res.json(market.snapshot()); });
 app.post('/api/logout', (req, res) => req.session.destroy(() => res.json({ ok: true })));
-app.listen(PORT, () => { console.log(`Sahmyar V12: http://localhost:${PORT}`); market.start(); });
+   app.listen(PORT, '0.0.0.0', () => {
+ { console.log(`Sahmyar V12: http://localhost:${PORT}`); market.start(); });
