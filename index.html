@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>سهم‌یار | Login/Register</title>
+<style>
+
+*{box-sizing:border-box}body{margin:0;font-family:Tahoma,Arial,sans-serif;background:#f4f7f9;color:#182333}button,input{font:inherit}button{cursor:pointer}
+.top{height:68px;background:linear-gradient(135deg,#083b57,#08785b);color:#fff;padding:12px 4%;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;direction:ltr;gap:16px;position:sticky;top:0;z-index:10}.top-left{display:flex;justify-content:flex-start;direction:rtl}.top-center{display:flex;justify-content:center}.top-right{display:flex;justify-content:flex-end}.logo{font-size:25px;font-weight:900;white-space:nowrap}.timer{background:#ffffff18;border:1px solid #ffffff25;padding:8px 12px;border-radius:11px;font-size:12px;white-space:nowrap}.timer strong{font-size:14px;margin-right:4px}.dashboard-btn{border:1px solid #ffffff35;background:#ffffff18;color:#fff;padding:10px 17px;border-radius:11px;font-weight:bold;white-space:nowrap}
+.container{max-width:1150px;margin:auto;padding:25px 16px}.screen{display:none}.screen.active{display:block}.auth-wrap{min-height:calc(100vh - 140px);display:flex;justify-content:center;align-items:center}.auth{width:min(460px,100%);background:#fff;border:1px solid #e3ebf0;border-radius:25px;padding:30px;box-shadow:0 16px 45px #18233312}.brand{font-size:29px;font-weight:900;color:#08785b;text-align:center}.auth h1{text-align:center;font-size:22px;margin:9px 0}.subtitle{text-align:center;color:#748194;font-size:13px;line-height:1.9;margin-bottom:20px}label{font-size:12px;color:#526072;display:block;margin:13px 0 7px}input{width:100%;padding:13px;border:1px solid #dbe3ea;border-radius:11px;outline:none;background:#fff}input:focus{border-color:#08785b}.primary{width:100%;border:0;background:#08785b;color:#fff;padding:13px;border-radius:11px;margin-top:16px;font-weight:bold}.outline{background:#fff;border:1px solid #dce4ea;padding:10px 13px;border-radius:10px}.msg{font-size:12px;min-height:18px;margin-top:9px}.error{color:#c0392b}.success{color:#08785b}
+.hero{background:linear-gradient(135deg,#0a405f,#08785b);color:#fff;border-radius:25px;padding:28px;box-shadow:0 15px 35px #123d6520}.hero h2{font-size:28px;margin:10px 0}.hero p{line-height:2;opacity:.9}.pick{display:flex;justify-content:space-between;align-items:center;background:#ffffff12;border:1px solid #ffffff20;border-radius:18px;padding:18px;margin-top:18px;gap:18px}.symbol{font-size:29px;font-weight:900}.company{opacity:.75;margin:5px 0 12px}.price{font-size:20px;font-weight:bold}.green{color:#8af0c1}.btn{border:0;background:#fff;color:#08674f;padding:12px 17px;border-radius:11px;font-weight:bold}.metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:16px}.metric{background:#ffffff12;padding:12px;border-radius:12px}.metric b{display:block;margin-top:5px}.dashboard-title{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:18px}.dashboard-title h1{margin:0;font-size:25px}.small{color:#748194;font-size:12px}.section{margin-top:30px}.section h2{margin-bottom:15px}.search{margin-bottom:15px}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(235px,1fr));gap:15px}.card{background:#fff;padding:18px;border-radius:18px;border:1px solid #e7edf2;box-shadow:0 6px 20px #18233308;cursor:pointer}.row{display:flex;justify-content:space-between;gap:12px}.muted{color:#738092;font-size:12px}.mini{margin-top:14px;display:flex;justify-content:space-between;align-items:center}.pill{font-size:11px;padding:5px 8px;border-radius:8px;background:#eaf8f2;color:#08785b}.profile{background:#fff;border:1px solid #e5ecf1;border-radius:20px;padding:20px;margin-top:25px}.profile h2{margin-top:0}.profile-grid{display:grid;grid-template-columns:1fr 1fr;gap:15px}.detail{display:none}.detail.active{display:block}.back{display:inline-block;margin-bottom:18px;color:#08785b;font-weight:bold;cursor:pointer}.boxes{display:grid;grid-template-columns:1fr 1fr;gap:15px;margin-top:18px}.box{background:#fff;border-radius:18px;padding:20px;border:1px solid #e7edf2}.buy{border-right:5px solid #0b8b68}.sell{border-right:5px solid #d79b00}.notice{margin-top:18px;background:#fff7df;color:#715b20;padding:15px;border-radius:14px;line-height:1.9;font-size:12px}.cd{direction:ltr;text-align:right;font-variant-numeric:tabular-nums;letter-spacing:1px}.footer{text-align:center;color:#8290a0;padding:30px 10px;font-size:12px}
+@media(max-width:700px){.top{height:auto;min-height:64px;padding:10px;grid-template-columns:1fr auto 1fr;gap:7px}.logo{font-size:20px}.timer{font-size:10px;padding:7px 8px}.timer strong{font-size:12px}.dashboard-btn{padding:8px 10px;font-size:11px}.pick,.dashboard-title{flex-direction:column;align-items:flex-start}.profile-grid,.boxes,.metrics{grid-template-columns:1fr}}
+
+.auth-wrap{min-height:calc(100vh - 140px);display:flex;justify-content:center;align-items:center}.auth{width:min(460px,100%);background:#fff;border:1px solid #e3ebf0;border-radius:25px;padding:30px;box-shadow:0 16px 45px #18233312}.brand{font-size:29px;font-weight:900;color:#08785b;text-align:center}.auth h1{text-align:center;font-size:22px;margin:9px 0}.subtitle{text-align:center;color:#748194;font-size:13px;line-height:1.9;margin-bottom:20px}.primary{width:100%;border:0;background:#08785b;color:#fff;padding:13px;border-radius:11px;margin-top:16px;font-weight:bold}.msg{font-size:12px;min-height:18px;margin-top:9px}.error{color:#c0392b}.success{color:#08785b}
+</style></head><body>
+<header id="siteHeader" style="display:none"><div class="top-left"><div class="timer"><strong id="countdown">—</strong></div></div><div class="top-center"><div class="logo">سهم‌یار</div></div><div class="top-right"><button class="dashboard-btn" onclick="showDashboard()">داشبورد</button></div></header>
+<main class="container">
+<section id="authScreen" class="screen active"><div class="auth-wrap"><div class="auth"><div class="brand">سهم‌یار</div><h1>ورود یا ثبت‌نام</h1><div class="subtitle">برای ورود یا ساخت حساب، ایمیل و رمز عبور خود را وارد کنید.</div><form id="authForm"><label for="email">Email</label><input id="email" type="email" placeholder="name@example.com" autocomplete="email" required><label for="password">Password</label><input id="password" type="password" placeholder="حداقل ۸ کاراکتر" autocomplete="current-password" minlength="8" required><button id="authButton" class="primary" type="submit">Login/Register</button></form><div id="authMsg" class="msg" role="status"></div></div></div></section>
+<section id="dashboardScreen" class="screen"><div class="dashboard-title"><div><h1>داشبورد</h1><div class="small">خوش آمدی، <span id="userEmail"></span></div></div><button class="outline" onclick="logout()">خروج از حساب</button></div><div class="hero"><div class="small" id="heroSub">در حال دریافت داده‌ی بازار…</div><h2>بالاترین امتیاز تکنیکال امروز</h2><p>امتیاز از روی داده‌ی واقعی قیمت و حجم بورس (روند، RSI، MACD، حجم و فاصله تا مقاومت) محاسبه می‌شود و با هر به‌روزرسانی بازار تغییر می‌کند.</p><div class="pick"><div><div class="symbol" id="bestS"></div><div class="company" id="bestC"></div><div class="price" id="bestP"></div></div><button class="btn" onclick="if(DATA&&DATA.best)detail(DATA.best)">تحلیل سهم</button></div><div class="metrics"><div class="metric">امتیاز امروز<b id="score"></b></div><div class="metric">ریسک (نوسان)<b id="riskV">—</b></div><div class="metric">افق تحلیل<b>کوتاه‌مدت (روزانه)</b></div></div></div>
+<div class="profile"><h2>حساب کاربری</h2><div class="profile-grid"><div><div class="muted">ایمیل</div><b id="profileEmail"></b></div><div><div class="muted">وضعیت</div><b>تأیید شده</b></div></div><hr style="margin:20px 0;border:0;border-top:1px solid #e7edf2"><h3>تغییر رمز عبور</h3><label>رمز فعلی</label><input id="oldPassword" type="password"><label>رمز جدید</label><input id="newPassword" type="password"><button class="primary" onclick="changePassword()">ذخیره رمز جدید</button><div id="passwordMsg" class="msg"></div></div>
+<section class="section"><h2>سهام منتخب بورس ایران</h2><div id="dataMsg" class="notice" style="display:none;margin:0 0 15px"></div><input class="search" id="search" placeholder="نام یا نماد سهم را جستجو کنید..." oninput="render()"><div class="grid" id="grid"></div></section></section>
+<section id="detailScreen" class="screen"><span class="back" onclick="showDashboard()">← بازگشت به داشبورد</span><div class="hero"><div class="small">صفحه تحلیل سهم</div><h2 id="ds"></h2><p id="dc"></p><div class="price" id="dp"></div></div><div class="boxes"><div class="box buy"><div class="muted" id="dbl">محدوده پیشنهادی خرید</div><h2 id="db"></h2><p id="dbp"></p></div><div class="box sell"><div class="muted" id="dsl">هدف قیمتی و حد ضرر</div><h2 id="dsell"></h2><p id="dsp"></p></div></div><div class="box" style="margin-top:18px"><b>چرا این امتیاز؟</b><ul id="reasons" style="line-height:2;padding-right:20px;margin:10px 0 0"></ul><div class="muted" id="indic" style="margin-top:12px;line-height:2"></div></div><div class="notice">⚠️ این تحلیل خودکار است و فقط بر پایه‌ی داده‌ی گذشته و اندیکاتورهای تکنیکال ساخته می‌شود. پیشنهاد سرمایه‌گذاری یا تضمین سود نیست؛ بازار سهام ریسک زیان دارد و تصمیم نهایی و مسئولیت آن با خود شماست.</div></section>
+
+</main><footer class="footer">سهم‌یار © ۲۰۲۶</footer>
+<script>
+function msg(id,text,type='error'){const el=document.getElementById(id);el.textContent=text;el.className='msg '+type}
+async function authenticate(){
+ const email=document.getElementById('email').value.trim().toLowerCase();
+ const password=document.getElementById('password').value;
+ const button=document.getElementById('authButton');
+ if(!email||!password){msg('authMsg','ایمیل و رمز عبور را وارد کنید.');return}
+ button.disabled=true; button.textContent='در حال ورود…';
+ try{
+  const r=await fetch('/api/auth',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({email,password})});
+  const d=await r.json(); if(!r.ok)throw Error(d.error||'ورود انجام نشد.');
+  enterDashboard(d.email);
+ }catch(e){msg('authMsg',e.message||'اتصال به سرور برقرار نشد.');}
+ finally{button.disabled=false;button.textContent='Login/Register';}
+}
+function enterDashboard(email){document.getElementById('authScreen').classList.remove('active');document.getElementById('dashboardScreen').classList.add('active');document.getElementById('detailScreen').classList.remove('active');document.getElementById('siteHeader').style.display='grid';document.getElementById('userEmail').textContent=email;document.getElementById('profileEmail').textContent=email;loadStocks()}
+async function logout(){try{await fetch('/api/logout',{method:'POST'})}catch(e){}location.reload()}
+async function changePassword(){const oldPassword=document.getElementById('oldPassword').value,newPassword=document.getElementById('newPassword').value;try{const r=await fetch('/api/change-password',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({oldPassword,newPassword})}),d=await r.json();if(!r.ok)throw Error(d.error||'خطا');msg('passwordMsg',d.message,'success')}catch(e){msg('passwordMsg',e.message)}}
+let DATA=null;const esc=t=>String(t??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const fmtNum=n=>faDigits(Math.round(n).toLocaleString('en-US'));
+const fmtPct=n=>faDigits((n>=0?'+':'')+n.toFixed(1))+'٪';
+function fmtDate(d){try{const t=String(d);return new Date(Date.UTC(+t.slice(0,4),+t.slice(4,6)-1,+t.slice(6,8),12)).toLocaleDateString('fa-IR',{timeZone:'UTC'})}catch(e){return faDigits(d)}}
+function marketOpen(){const d=new Date(Date.now()+3.5*3600000),m=d.getUTCHours()*60+d.getUTCMinutes();return[6,0,1,2,3].includes(d.getUTCDay())&&m>=540&&m<750}
+function showDataMsg(t){const e=document.getElementById('dataMsg');e.style.display=t?'block':'none';e.textContent=t||''}
+function stopTimers(){}
+async function loadStocks(){
+ let r,d;
+ try{r=await fetch('/api/stocks');if(r.status===401){location.reload();return}d=await r.json()}
+ catch(e){DATA=null;showDataMsg('اتصال به سرور سهم‌یار برقرار نیست. برای دیدن داده‌ی واقعی بازار، پروژه را با npm start اجرا کنید و از آدرس http://localhost:3000 باز کنید.');render();updateTimer();return}
+ DATA=d;
+ if(!d.ok)showDataMsg('داده‌ی بازار فعلاً در دسترس نیست. '+(d.error||'در حال دریافت…')+' سهم‌یار عمداً داده‌ی ساختگی نشان نمی‌دهد.');
+ else if(d.stale)showDataMsg('آخرین به‌روزرسانی موفق مربوط به چند ساعت پیش است؛ داده ممکن است قدیمی باشد.');
+ else showDataMsg('');
+ render();updateTimer();
+}
+function riskOf(s){return s.risk}
+function render(){
+ const ok=DATA&&DATA.ok,best=ok?DATA.stocks.find(x=>x.symbol===DATA.best):null,g=document.getElementById('grid');g.innerHTML='';
+ document.getElementById('heroSub').textContent=ok?'از بین '+faDigits(DATA.count)+' سهم منتخب • آخرین داده: '+fmtDate(DATA.lastDate):'داده‌ی بازار در دسترس نیست';
+ document.getElementById('bestS').textContent=best?best.symbol:'—';document.getElementById('bestC').textContent=best?best.name:'';
+ document.getElementById('bestP').innerHTML=best?fmtNum(best.price)+' ریال <span class="green">'+fmtPct(best.changePct)+'</span>':'';
+ document.getElementById('score').textContent=best?faDigits(best.score)+' از ۱۰۰':'—';document.getElementById('riskV').textContent=best?best.risk:'—';
+ if(!ok)return;
+ const q=document.getElementById('search').value.trim();
+ DATA.stocks.forEach(x=>{if(q&&!(`${x.symbol} ${x.name}`.includes(q)))return;const d=document.createElement('div');d.className='card';d.innerHTML=`<div class="row"><div><b>${esc(x.symbol)}</b><div class="muted">${esc(x.name)}</div></div><div>${fmtPct(x.changePct)}</div></div><div class="mini"><b>${fmtNum(x.price)} ریال</b><span class="pill">امتیاز ${faDigits(x.score)}</span></div>`;d.onclick=()=>detail(x.symbol);g.appendChild(d)})
+}
+function showDashboard(){document.getElementById('detailScreen').classList.remove('active');document.getElementById('dashboardScreen').classList.add('active');document.getElementById('siteHeader').style.display='grid';scrollTo(0,0)}
+function detail(sym){
+ const x=DATA&&DATA.stocks.find(s=>s.symbol===sym);if(!x)return;const L=x.levels,I=x.indicators;
+ document.getElementById('dashboardScreen').classList.remove('active');document.getElementById('detailScreen').classList.add('active');
+ document.getElementById('ds').textContent=x.symbol+' • امتیاز '+faDigits(x.score)+' از ۱۰۰';document.getElementById('dc').textContent=x.name+' — '+x.verdict;
+ document.getElementById('dp').innerHTML=fmtNum(x.price)+' ریال <span class="green">'+fmtPct(x.changePct)+'</span> <span class="small" style="color:#fff;opacity:.7">(پایانی '+fmtDate(x.lastDate)+')</span>';
+ document.getElementById('db').textContent=fmtNum(L.entryLow)+' تا '+fmtNum(L.entryHigh)+' ریال';
+ document.getElementById('dbp').textContent='بر پایه‌ی قیمت پایانی، حمایت اخیر ('+fmtNum(L.support)+') و نوسان معمول روزانه‌ی سهم محاسبه شده است.';
+ document.getElementById('dsell').textContent='هدف '+fmtNum(L.target)+' • حد ضرر '+fmtNum(L.stop);
+ document.getElementById('dsp').textContent='مقاومت اخیر '+fmtNum(L.resistance)+(L.rr?' • نسبت بازده به ریسک تقریباً ۱ به '+faDigits(L.rr):'')+(marketOpen()?' • بازار اکنون باز است.':' • بازار اکنون بسته است.');
+ document.getElementById('reasons').innerHTML=x.reasons.map(r=>`<li style="color:${r.t==='pos'?'#08785b':r.t==='neg'?'#c0392b':'#715b20'}">${r.x}</li>`).join('');
+ document.getElementById('indic').textContent='RSI: '+faDigits(I.rsi)+' • میانگین ۲۰ روزه: '+fmtNum(I.sma20)+' • میانگین ۵۰ روزه: '+fmtNum(I.sma50)+' • حجم نسبت به میانگین: '+faDigits(I.volRatio)+' برابر • نوسان روزانه (ATR): '+faDigits(I.atrPct)+'٪ • ریسک: '+x.risk;
+ scrollTo(0,0)
+}
+function updateTimer(){const e=document.getElementById('countdown');e.textContent=(marketOpen()?'بازار باز':'بازار بسته')+(DATA&&DATA.ok?' • داده تا '+fmtDate(DATA.lastDate):'')}
+setInterval(updateTimer,30000);
+setInterval(()=>{if(document.getElementById('dashboardScreen').classList.contains('active'))loadStocks()},300000);
+
+(async()=>{try{const r=await fetch('/api/me'),d=await r.json();if(d.authenticated)enterDashboard(d.email)}catch(e){}})();
+
+document.getElementById('authForm').addEventListener('submit',e=>{e.preventDefault();authenticate()});
+</script></body></html>
